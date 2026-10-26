@@ -1,10 +1,11 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>MemeX - Reels</title>
+  <title>MemeX Reels</title>
 
   <style>
     * {
@@ -13,69 +14,74 @@
 
     body {
       margin: 0;
-      padding: 0;
-      background: #101010;
+      background: #000;
       color: white;
       font-family: Arial, sans-serif;
     }
 
     header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 10;
+      padding: 12px;
       text-align: center;
-      padding: 22px 12px;
-      background: #181818;
+      background: rgba(0, 0, 0, 0.8);
       border-bottom: 1px solid #333;
     }
 
-    header h1 {
+    header h2 {
       margin: 0;
-      font-size: 32px;
       color: #ff3158;
     }
 
-    header p {
-      margin: 8px 0 0;
-      color: #bbb;
+    .feed {
+      height: 100vh;
+      height: 100dvh;
+      overflow-y: auto;
+      scroll-snap-type: y mandatory;
+      overscroll-behavior-y: contain;
     }
 
-    .reels {
+    .reel {
+      height: 100vh;
+      height: 100dvh;
+      width: 100%;
       display: flex;
-      flex-wrap: wrap;
+      align-items: center;
       justify-content: center;
-      align-items: flex-start;
-      gap: 22px;
-      padding: 24px 12px;
+      position: relative;
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
+      background: #000;
+      padding: 60px 10px 20px;
     }
 
-    .reel-card {
-      width: 100%;
-      max-width: 360px;
-      padding: 12px;
-      background: #1c1c1c;
-      border: 1px solid #333;
-      border-radius: 14px;
-    }
-
-    .reel-card h2 {
-      margin: 4px 0 12px;
-      font-size: 16px;
-    }
-
-    video {
+    .reel video {
       display: block;
+      height: 100%;
       width: 100%;
-      height: auto;
-      max-height: 75vh;
-      aspect-ratio: 9 / 16;
+      max-width: 480px;
       object-fit: contain;
       background: #000;
-      border-radius: 8px;
     }
 
-    footer {
-      padding: 20px;
-      text-align: center;
-      color: #888;
-      font-size: 13px;
+    .label {
+      position: absolute;
+      left: 16px;
+      bottom: 24px;
+      z-index: 2;
+      background: rgba(0, 0, 0, 0.65);
+      padding: 8px 12px;
+      border-radius: 8px;
+      pointer-events: none;
+    }
+
+    @media (min-width: 700px) {
+      .reel video {
+        max-width: 420px;
+      }
     }
   </style>
 </head>
@@ -83,107 +89,113 @@
 <body>
 
   <header>
-    <h1>🔥 MemeX</h1>
-    <p>Your daily dose of reels and memes</p>
+    <h2>🔥 MemeX</h2>
   </header>
 
-  <main class="reels">
+  <main class="feed">
 
-    <div class="reel-card">
-      <h2>Reel 1</h2>
-      <video class="reel" controls playsinline preload="metadata">
+    <section class="reel">
+      <video controls playsinline preload="metadata">
         <source src="video_20260923_233219.mp4" type="video/mp4">
       </video>
-    </div>
+      <div class="label">Reel 1</div>
+    </section>
 
-    <div class="reel-card">
-      <h2>Reel 2</h2>
-      <video class="reel" controls playsinline preload="metadata">
+    <section class="reel">
+      <video controls playsinline preload="metadata">
         <source src="lv_0_20260924003151.mp4" type="video/mp4">
       </video>
-    </div>
+      <div class="label">Reel 2</div>
+    </section>
 
-    <div class="reel-card">
-      <h2>IG 8</h2>
-      <video class="reel" controls playsinline preload="metadata">
+    <section class="reel">
+      <video controls playsinline preload="metadata">
         <source src="ig%208.mp4" type="video/mp4">
       </video>
-    </div>
+      <div class="label">IG 8</div>
+    </section>
 
-    <div class="reel-card">
-      <h2>IG 7</h2>
-      <video class="reel" controls playsinline preload="metadata">
+    <section class="reel">
+      <video controls playsinline preload="metadata">
         <source src="ig%207.mp4" type="video/mp4">
       </video>
-    </div>
+      <div class="label">IG 7</div>
+    </section>
 
-    <div class="reel-card">
-      <h2>IG 6</h2>
-      <video class="reel" controls playsinline preload="metadata">
+    <section class="reel">
+      <video controls playsinline preload="metadata">
         <source src="ig%206.mp4" type="video/mp4">
       </video>
-    </div>
+      <div class="label">IG 6</div>
+    </section>
 
-    <div class="reel-card">
-      <h2>IG 5</h2>
-      <video class="reel" controls playsinline preload="metadata">
+    <section class="reel">
+      <video controls playsinline preload="metadata">
         <source src="ig%205.mp4" type="video/mp4">
       </video>
-    </div>
+      <div class="label">IG 5</div>
+    </section>
 
-    <div class="reel-card">
-      <h2>IG Reel 4</h2>
-      <video class="reel" controls playsinline preload="metadata">
+    <section class="reel">
+      <video controls playsinline preload="metadata">
         <source src="ig%20reel%204.mp4" type="video/mp4">
       </video>
-    </div>
+      <div class="label">IG Reel 4</div>
+    </section>
 
-    <div class="reel-card">
-      <h2>IG Reel 3</h2>
-      <video class="reel" controls playsinline preload="metadata">
+    <section class="reel">
+      <video controls playsinline preload="metadata">
         <source src="ig%20reel%203.mp4" type="video/mp4">
       </video>
-    </div>
+      <div class="label">IG Reel 3</div>
+    </section>
 
-    <div class="reel-card">
-      <h2>IG Reel 2</h2>
-      <video class="reel" controls playsinline preload="metadata">
+    <section class="reel">
+      <video controls playsinline preload="metadata">
         <source src="ig%20reel%202.mp4" type="video/mp4">
       </video>
-    </div>
+      <div class="label">IG Reel 2</div>
+    </section>
 
-    <div class="reel-card">
-      <h2>IG Reel 1</h2>
-      <video class="reel" controls playsinline preload="metadata">
+    <section class="reel">
+      <video controls playsinline preload="metadata">
         <source src="ig%20reel%201.mp4" type="video/mp4">
       </video>
-    </div>
+      <div class="label">IG Reel 1</div>
+    </section>
 
   </main>
 
-  <footer>
-    © 2026 MemeX | Made for fun ❤️
-  </footer>
-
   <script>
-    const reels = Array.from(document.querySelectorAll(".reel"));
+    const feed = document.querySelector(".feed");
+    const sections = [...document.querySelectorAll(".reel")];
+    const videos = sections.map(section =>
+      section.querySelector("video")
+    );
 
-    reels.forEach((video, index) => {
-      video.addEventListener("ended", () => {
-        const nextVideo = reels[index + 1];
+    // Pause every video except the one currently on screen.
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        const video = entry.target.querySelector("video");
 
-        if (nextVideo) {
-          nextVideo.scrollIntoView({
-            behavior: "smooth",
-            block: "center"
+        if (!video) return;
+
+        if (entry.isIntersecting && entry.intersectionRatio >= 0.6) {
+          videos.forEach(other => {
+            if (other !== video) {
+              other.pause();
+            }
           });
-
-          nextVideo.play().catch(() => {
-            console.log("Tap play to start the next reel.");
-          });
+        } else {
+          video.pause();
         }
       });
+    }, {
+      root: feed,
+      threshold: [0, 0.6, 1]
     });
+
+    sections.forEach(section => observer.observe(section));
   </script>
 
 </body>
