@@ -1,33 +1,52 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MemeX</title>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 20px;
+      background: #111;
+      color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 25px;
+    }
+
+    .video-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+    }
+
+    video {
+      display: block;
+      width: 100%;
+      max-width: 360px;
+      height: auto;
+      max-height: 75vh;
+      object-fit: contain;
+      background: black;
+    }
+  </style>
 </head>
 
 <body>
+  <h1>MemeX 🎬</h1>
 
-  <h1>MemeX</h1>
-
-  <video id="video1" width="100%" controls>
-    <source src="video_20260923_233219.mp4" type="video/mp4">
-    Your browser does not support video.
-  </video>
-
-  <br><br>
-
-  <video id="video2" width="100%" controls>
-    <source src="lv_0_20260924003151.mp4" type="video/mp4">
-    Your browser does not support video.
-  </video>
-
-  <script>
-    const video1 = document.getElementById("video1");
-    const video2 = document.getElementById("video2");
-
-    video1.addEventListener("ended", function() {
-      video2.play();
-    });
-  </script>
-
+  <div class="video-container">
+    <video id="video1" controls playsinline>
+      <source src="lv_0_20260924003151.mp4" type="video/mp4">
+      Your browser does not support video.
+    </video>
+  </div>
 </body>
 </html>
