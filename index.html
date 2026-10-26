@@ -1,52 +1,190 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MemeX</title>
+
+  <title>MemeX - Reels</title>
 
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
-      padding: 20px;
-      background: #111;
+      padding: 0;
+      background: #101010;
       color: white;
       font-family: Arial, sans-serif;
+    }
+
+    header {
       text-align: center;
+      padding: 22px 12px;
+      background: #181818;
+      border-bottom: 1px solid #333;
     }
 
-    h1 {
-      margin-bottom: 25px;
+    header h1 {
+      margin: 0;
+      font-size: 32px;
+      color: #ff3158;
     }
 
-    .video-container {
+    header p {
+      margin: 8px 0 0;
+      color: #bbb;
+    }
+
+    .reels {
       display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 30px;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 22px;
+      padding: 24px 12px;
+    }
+
+    .reel-card {
+      width: 100%;
+      max-width: 360px;
+      padding: 12px;
+      background: #1c1c1c;
+      border: 1px solid #333;
+      border-radius: 14px;
+    }
+
+    .reel-card h2 {
+      margin: 4px 0 12px;
+      font-size: 16px;
     }
 
     video {
       display: block;
       width: 100%;
-      max-width: 360px;
       height: auto;
       max-height: 75vh;
+      aspect-ratio: 9 / 16;
       object-fit: contain;
-      background: black;
+      background: #000;
+      border-radius: 8px;
+    }
+
+    footer {
+      padding: 20px;
+      text-align: center;
+      color: #888;
+      font-size: 13px;
     }
   </style>
 </head>
 
 <body>
-  <h1>MemeX 🎬</h1>
 
-  <div class="video-container">
-    <video id="video1" controls playsinline>
-      <source src="lv_0_20260924003151.mp4" type="video/mp4">
-      Your browser does not support video.
-    </video>
-  </div>
+  <header>
+    <h1>🔥 MemeX</h1>
+    <p>Your daily dose of reels and memes</p>
+  </header>
+
+  <main class="reels">
+
+    <div class="reel-card">
+      <h2>Reel 1</h2>
+      <video class="reel" controls playsinline preload="metadata">
+        <source src="video_20260923_233219.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <div class="reel-card">
+      <h2>Reel 2</h2>
+      <video class="reel" controls playsinline preload="metadata">
+        <source src="lv_0_20260924003151.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <div class="reel-card">
+      <h2>IG 8</h2>
+      <video class="reel" controls playsinline preload="metadata">
+        <source src="ig%208.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <div class="reel-card">
+      <h2>IG 7</h2>
+      <video class="reel" controls playsinline preload="metadata">
+        <source src="ig%207.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <div class="reel-card">
+      <h2>IG 6</h2>
+      <video class="reel" controls playsinline preload="metadata">
+        <source src="ig%206.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <div class="reel-card">
+      <h2>IG 5</h2>
+      <video class="reel" controls playsinline preload="metadata">
+        <source src="ig%205.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <div class="reel-card">
+      <h2>IG Reel 4</h2>
+      <video class="reel" controls playsinline preload="metadata">
+        <source src="ig%20reel%204.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <div class="reel-card">
+      <h2>IG Reel 3</h2>
+      <video class="reel" controls playsinline preload="metadata">
+        <source src="ig%20reel%203.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <div class="reel-card">
+      <h2>IG Reel 2</h2>
+      <video class="reel" controls playsinline preload="metadata">
+        <source src="ig%20reel%202.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <div class="reel-card">
+      <h2>IG Reel 1</h2>
+      <video class="reel" controls playsinline preload="metadata">
+        <source src="ig%20reel%201.mp4" type="video/mp4">
+      </video>
+    </div>
+
+  </main>
+
+  <footer>
+    © 2026 MemeX | Made for fun ❤️
+  </footer>
+
+  <script>
+    const reels = Array.from(document.querySelectorAll(".reel"));
+
+    reels.forEach((video, index) => {
+      video.addEventListener("ended", () => {
+        const nextVideo = reels[index + 1];
+
+        if (nextVideo) {
+          nextVideo.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+          });
+
+          nextVideo.play().catch(() => {
+            console.log("Tap play to start the next reel.");
+          });
+        }
+      });
+    });
+  </script>
+
 </body>
 </html>
