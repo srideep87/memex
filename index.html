@@ -3,8 +3,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MemeX | Reels</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MemeX Reels</title>
 
   <style>
     * {
@@ -17,7 +17,7 @@
       height: 100%;
       overflow: hidden;
       background: #000;
-      color: #fff;
+      color: white;
       font-family: Arial, sans-serif;
     }
 
@@ -25,32 +25,30 @@
       position: fixed;
       top: 0;
       left: 0;
-      width: 100%;
-      height: 52px;
+      right: 0;
+      height: 48px;
       display: flex;
       align-items: center;
       justify-content: center;
-      background: rgba(0, 0, 0, 0.85);
-      z-index: 100;
-      border-bottom: 1px solid #292929;
+      background: rgba(0, 0, 0, 0.88);
+      z-index: 10;
     }
 
     header h1 {
       margin: 0;
-      font-size: 24px;
       color: #ff3158;
+      font-size: 24px;
     }
 
     .feed {
       position: fixed;
-      top: 52px;
+      top: 48px;
       left: 0;
       right: 0;
-      bottom: 0;
-      height: calc(100vh - 52px);
-      height: calc(100dvh - 52px);
+      height: calc(100vh - 48px);
+      height: calc(100dvh - 48px);
+      overflow-y: auto;
       overflow-x: hidden;
-      overflow-y: scroll;
       scroll-snap-type: y mandatory;
       scroll-behavior: smooth;
       overscroll-behavior-y: contain;
@@ -64,147 +62,222 @@
     .reel {
       position: relative;
       width: 100%;
-      height: calc(100vh - 52px);
-      height: calc(100dvh - 52px);
-      min-height: calc(100vh - 52px);
-      min-height: calc(100dvh - 52px);
+      height: calc(100vh - 48px);
+      height: calc(100dvh - 48px);
       flex: none;
       scroll-snap-align: start;
       scroll-snap-stop: always;
       display: flex;
-      align-items: center;
       justify-content: center;
+      align-items: center;
       background: #000;
       overflow: hidden;
     }
 
     .reel video {
-      display: block;
       width: 100%;
       height: 100%;
-      max-width: 480px;
+      max-width: 430px;
       object-fit: contain;
       background: #000;
     }
 
+    .play-overlay {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 76px;
+      height: 76px;
+      border: 0;
+      border-radius: 50%;
+      background: rgba(255, 49, 88, 0.92);
+      color: white;
+      font-size: 34px;
+      cursor: pointer;
+      padding-left: 5px;
+      z-index: 2;
+    }
+
+    .play-overlay.hidden {
+      display: none;
+    }
+
     .reel-label {
       position: absolute;
+      left: 14px;
       bottom: 18px;
-      left: 15px;
-      padding: 8px 12px;
+      z-index: 3;
       background: rgba(0, 0, 0, 0.65);
-      color: white;
+      padding: 8px 12px;
       border-radius: 8px;
       font-size: 14px;
       pointer-events: none;
-    }
-
-    @media (min-width: 700px) {
-      .reel video {
-        max-width: 430px;
-      }
     }
   </style>
 </head>
 
 <body>
 
-  <header>
-    <h1>🔥 MemeX</h1>
-  </header>
+<header>
+  <h1>🔥 MemeX</h1>
+</header>
 
-  <main class="feed" id="feed">
+<main class="feed" id="feed">
 
-  
+  <!-- 1: IG Reel 1 -->
+  <section class="reel">
+    <video controls playsinline preload="metadata">
+      <source src="ig%20reel%201.mp4" type="video/mp4">
+    </video>
+    <button class="play-overlay" aria-label="Play reel">▶</button>
+    <div class="reel-label">Reel 1</div>
+  </section>
 
+  <!-- 2: IG Reel 2 -->
+  <section class="reel">
+    <video controls playsinline preload="metadata">
+      <source src="ig%20reel%202.mp4" type="video/mp4">
+    </video>
+    <button class="play-overlay" aria-label="Play reel">▶</button>
+    <div class="reel-label">Reel 2</div>
+  </section>
 
-    <section class="reel">
-      <video controls playsinline preload="metadata">
-        <source src="ig%208.mp4" type="video/mp4">
-      </video>
-      <div class="reel-label">IG 8</div>
-    </section>
+  <!-- 3: IG Reel 3 -->
+  <section class="reel">
+    <video controls playsinline preload="metadata">
+      <source src="ig%20reel%203.mp4" type="video/mp4">
+    </video>
+    <button class="play-overlay" aria-label="Play reel">▶</button>
+    <div class="reel-label">Reel 3</div>
+  </section>
 
-    <section class="reel">
-      <video controls playsinline preload="metadata">
-        <source src="ig%207.mp4" type="video/mp4">
-      </video>
-      <div class="reel-label">IG 7</div>
-    </section>
+  <!-- 4: IG Reel 4 -->
+  <section class="reel">
+    <video controls playsinline preload="metadata">
+      <source src="ig%20reel%204.mp4" type="video/mp4">
+    </video>
+    <button class="play-overlay" aria-label="Play reel">▶</button>
+    <div class="reel-label">Reel 4</div>
+  </section>
 
-    <section class="reel">
-      <video controls playsinline preload="metadata">
-        <source src="ig%206.mp4" type="video/mp4">
-      </video>
-      <div class="reel-label">IG 6</div>
-    </section>
+  <!-- 5: IG 5 -->
+  <section class="reel">
+    <video controls playsinline preload="metadata">
+      <source src="ig%205.mp4" type="video/mp4">
+    </video>
+    <button class="play-overlay" aria-label="Play reel">▶</button>
+    <div class="reel-label">Reel 5</div>
+  </section>
 
-    <section class="reel">
-      <video controls playsinline preload="metadata">
-        <source src="ig%205.mp4" type="video/mp4">
-      </video>
-      <div class="reel-label">IG 5</div>
-    </section>
+  <!-- 6: IG 6 -->
+  <section class="reel">
+    <video controls playsinline preload="metadata">
+      <source src="ig%206.mp4" type="video/mp4">
+    </video>
+    <button class="play-overlay" aria-label="Play reel">▶</button>
+    <div class="reel-label">Reel 6</div>
+  </section>
 
-    <section class="reel">
-      <video controls playsinline preload="metadata">
-        <source src="ig%20reel%204.mp4" type="video/mp4">
-      </video>
-      <div class="reel-label">IG Reel 4</div>
-    </section>
+  <!-- 7: IG 7 -->
+  <section class="reel">
+    <video controls playsinline preload="metadata">
+      <source src="ig%207.mp4" type="video/mp4">
+    </video>
+    <button class="play-overlay" aria-label="Play reel">▶</button>
+    <div class="reel-label">Reel 7</div>
+  </section>
 
-    <section class="reel">
-      <video controls playsinline preload="metadata">
-        <source src="ig%20reel%203.mp4" type="video/mp4">
-      </video>
-      <div class="reel-label">IG Reel 3</div>
-    </section>
+  <!-- 8: IG 8 -->
+  <section class="reel">
+    <video controls playsinline preload="metadata">
+      <source src="ig%208.mp4" type="video/mp4">
+    </video>
+    <button class="play-overlay" aria-label="Play reel">▶</button>
+    <div class="reel-label">Reel 8</div>
+  </section>
 
-    <section class="reel">
-      <video controls playsinline preload="metadata">
-        <source src="ig%20reel%202.mp4" type="video/mp4">
-      </video>
-      <div class="reel-label">IG Reel 2</div>
-    </section>
+</main>
 
-    <section class="reel">
-      <video controls playsinline preload="metadata">
-        <source src="ig%20reel%201.mp4" type="video/mp4">
-      </video>
-      <div class="reel-label">IG Reel 1</div>
-    </section>
+<script>
+  const sections = [...document.querySelectorAll(".reel")];
+  let activeVideo = null;
+  let manuallyPaused = false;
 
-  </main>
+  sections.forEach(section => {
+    const video = section.querySelector("video");
+    const button = section.querySelector(".play-overlay");
 
-  <script>
-    const feed = document.getElementById("feed");
-    const sections = [...document.querySelectorAll(".reel")];
-    const videos = sections.map(section =>
-      section.querySelector("video")
-    );
-
-    // Pause all reels except the one currently on screen.
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        const video = entry.target.querySelector("video");
-
-        if (entry.isIntersecting && entry.intersectionRatio >= 0.6) {
-          videos.forEach(otherVideo => {
-            if (otherVideo !== video) {
-              otherVideo.pause();
-            }
-          });
-        } else {
-          video.pause();
-        }
-      });
-    }, {
-      root: feed,
-      threshold: [0, 0.6, 1]
+    button.addEventListener("click", () => {
+      manuallyPaused = false;
+      video.play().catch(() => {});
     });
 
-    sections.forEach(section => observer.observe(section));
-  </script>
+    video.addEventListener("play", () => {
+      sections.forEach(otherSection => {
+        const otherVideo = otherSection.querySelector("video");
+        const otherButton = otherSection.querySelector(".play-overlay");
+
+        if (otherVideo !== video) {
+          otherVideo.pause();
+          otherButton.classList.remove("hidden");
+        }
+      });
+
+      activeVideo = video;
+      button.classList.add("hidden");
+    });
+
+    video.addEventListener("pause", () => {
+      button.classList.remove("hidden");
+    });
+
+    video.addEventListener("ended", () => {
+      const index = sections.indexOf(section);
+      const nextSection = sections[index + 1];
+
+      if (nextSection) {
+        nextSection.scrollIntoView({ behavior: "smooth" });
+      }
+    });
+  });
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      const video = entry.target.querySelector("video");
+      const button = entry.target.querySelector(".play-overlay");
+
+      if (entry.isIntersecting && entry.intersectionRatio >= 0.65) {
+        if (activeVideo !== video) {
+          if (activeVideo) activeVideo.pause();
+
+          sections.forEach(otherSection => {
+            const otherVideo = otherSection.querySelector("video");
+            const otherButton = otherSection.querySelector(".play-overlay");
+
+            if (otherVideo !== video) {
+              otherVideo.pause();
+              otherButton.classList.remove("hidden");
+            }
+          });
+
+          activeVideo = video;
+          manuallyPaused = false;
+
+          video.play()
+            .then(() => button.classList.add("hidden"))
+            .catch(() => button.classList.remove("hidden"));
+        }
+      } else {
+        video.pause();
+      }
+    });
+  }, {
+    threshold: [0, 0.65, 1]
+  });
+
+  sections.forEach(section => observer.observe(section));
+</script>
 
 </body>
 </html>
