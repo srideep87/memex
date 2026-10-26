@@ -3,19 +3,21 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <title>MemeX Reels</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MemeX | Reels</title>
 
   <style>
     * {
       box-sizing: border-box;
     }
 
-    body {
+    html, body {
       margin: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
       background: #000;
-      color: white;
+      color: #fff;
       font-family: Arial, sans-serif;
     }
 
@@ -23,64 +25,83 @@
       position: fixed;
       top: 0;
       left: 0;
-      right: 0;
-      z-index: 10;
-      padding: 12px;
-      text-align: center;
-      background: rgba(0, 0, 0, 0.8);
-      border-bottom: 1px solid #333;
+      width: 100%;
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 0, 0, 0.85);
+      z-index: 100;
+      border-bottom: 1px solid #292929;
     }
 
-    header h2 {
+    header h1 {
       margin: 0;
+      font-size: 24px;
       color: #ff3158;
     }
 
     .feed {
-      height: 100vh;
-      height: 100dvh;
-      overflow-y: auto;
+      position: fixed;
+      top: 52px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: calc(100vh - 52px);
+      height: calc(100dvh - 52px);
+      overflow-x: hidden;
+      overflow-y: scroll;
       scroll-snap-type: y mandatory;
+      scroll-behavior: smooth;
       overscroll-behavior-y: contain;
+      scrollbar-width: none;
+    }
+
+    .feed::-webkit-scrollbar {
+      display: none;
     }
 
     .reel {
-      height: 100vh;
-      height: 100dvh;
+      position: relative;
       width: 100%;
+      height: calc(100vh - 52px);
+      height: calc(100dvh - 52px);
+      min-height: calc(100vh - 52px);
+      min-height: calc(100dvh - 52px);
+      flex: none;
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
       display: flex;
       align-items: center;
       justify-content: center;
-      position: relative;
-      scroll-snap-align: start;
-      scroll-snap-stop: always;
       background: #000;
-      padding: 60px 10px 20px;
+      overflow: hidden;
     }
 
     .reel video {
       display: block;
-      height: 100%;
       width: 100%;
+      height: 100%;
       max-width: 480px;
       object-fit: contain;
       background: #000;
     }
 
-    .label {
+    .reel-label {
       position: absolute;
-      left: 16px;
-      bottom: 24px;
-      z-index: 2;
-      background: rgba(0, 0, 0, 0.65);
+      bottom: 18px;
+      left: 15px;
       padding: 8px 12px;
+      background: rgba(0, 0, 0, 0.65);
+      color: white;
       border-radius: 8px;
+      font-size: 14px;
       pointer-events: none;
     }
 
     @media (min-width: 700px) {
       .reel video {
-        max-width: 420px;
+        max-width: 430px;
       }
     }
   </style>
@@ -89,101 +110,100 @@
 <body>
 
   <header>
-    <h2>🔥 MemeX</h2>
+    <h1>🔥 MemeX</h1>
   </header>
 
-  <main class="feed">
+  <main class="feed" id="feed">
 
     <section class="reel">
       <video controls playsinline preload="metadata">
         <source src="video_20260923_233219.mp4" type="video/mp4">
+        Your browser does not support this video.
       </video>
-      <div class="label">Reel 1</div>
+      <div class="reel-label">Reel 1</div>
     </section>
 
     <section class="reel">
       <video controls playsinline preload="metadata">
         <source src="lv_0_20260924003151.mp4" type="video/mp4">
       </video>
-      <div class="label">Reel 2</div>
+      <div class="reel-label">Reel 2</div>
     </section>
 
     <section class="reel">
       <video controls playsinline preload="metadata">
         <source src="ig%208.mp4" type="video/mp4">
       </video>
-      <div class="label">IG 8</div>
+      <div class="reel-label">IG 8</div>
     </section>
 
     <section class="reel">
       <video controls playsinline preload="metadata">
         <source src="ig%207.mp4" type="video/mp4">
       </video>
-      <div class="label">IG 7</div>
+      <div class="reel-label">IG 7</div>
     </section>
 
     <section class="reel">
       <video controls playsinline preload="metadata">
         <source src="ig%206.mp4" type="video/mp4">
       </video>
-      <div class="label">IG 6</div>
+      <div class="reel-label">IG 6</div>
     </section>
 
     <section class="reel">
       <video controls playsinline preload="metadata">
         <source src="ig%205.mp4" type="video/mp4">
       </video>
-      <div class="label">IG 5</div>
+      <div class="reel-label">IG 5</div>
     </section>
 
     <section class="reel">
       <video controls playsinline preload="metadata">
         <source src="ig%20reel%204.mp4" type="video/mp4">
       </video>
-      <div class="label">IG Reel 4</div>
+      <div class="reel-label">IG Reel 4</div>
     </section>
 
     <section class="reel">
       <video controls playsinline preload="metadata">
         <source src="ig%20reel%203.mp4" type="video/mp4">
       </video>
-      <div class="label">IG Reel 3</div>
+      <div class="reel-label">IG Reel 3</div>
     </section>
 
     <section class="reel">
       <video controls playsinline preload="metadata">
         <source src="ig%20reel%202.mp4" type="video/mp4">
       </video>
-      <div class="label">IG Reel 2</div>
+      <div class="reel-label">IG Reel 2</div>
     </section>
 
     <section class="reel">
       <video controls playsinline preload="metadata">
         <source src="ig%20reel%201.mp4" type="video/mp4">
       </video>
-      <div class="label">IG Reel 1</div>
+      <div class="reel-label">IG Reel 1</div>
     </section>
 
   </main>
 
   <script>
-    const feed = document.querySelector(".feed");
+    const feed = document.getElementById("feed");
     const sections = [...document.querySelectorAll(".reel")];
     const videos = sections.map(section =>
       section.querySelector("video")
     );
 
-    // Pause every video except the one currently on screen.
+    // Pause all reels except the one currently on screen.
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         const video = entry.target.querySelector("video");
 
-        if (!video) return;
-
         if (entry.isIntersecting && entry.intersectionRatio >= 0.6) {
-          videos.forEach(other => {
-            if (other !== video) {
-              other.pause();
+          videos.forEach(otherVideo => {
+            if (otherVideo !== video) {
+              otherVideo.pause();
             }
           });
         } else {
@@ -200,3 +220,4 @@
 
 </body>
 </html>
+
